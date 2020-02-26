@@ -14,7 +14,6 @@ const delimRegex = /[+-]/g;
 
 const run = (input: string, message: Message) => {
 
-
   if (input.match(validateRegex)) {
     input = input.replace(/\s+/g, '');
     const rollPayload: RollPayload = {
@@ -51,6 +50,8 @@ const run = (input: string, message: Message) => {
         resultParts.push(resultPart);
       }
       message.channel.send(`${resultParts.join(' + ')} = ${step.total}`).then();
+    }).catch(() => {
+      message.channel.send('That roll is messed up...').then();
     });
   } else {
     message.channel.send('Sorry bud, I don\'t know how to roll that...').then();
