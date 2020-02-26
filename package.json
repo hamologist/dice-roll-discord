@@ -2,9 +2,15 @@
   "name": "dice-roll-discord",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/server.js",
+  "main": "lib/bot.js",
+  "types": "lib/bot.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepare": "npm run build",
+    "build": "./node_modules/typescript/bin/tsc",
+    "watch": "./node_modules/typescript/bin/tsc -w",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node lib/bot.js",
+    "nodemon": "./node_modules/nodemon/bin/nodemon.js lib/bot.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +28,8 @@
     "typescript": "^3.8.2"
   },
   "dependencies": {
+    "axios": "^0.19.2",
+    "dice-roll": "github:hamologist/dice-roll#master",
     "discord.js": "^11.5.1"
   }
 }
