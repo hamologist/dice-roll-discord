@@ -37,7 +37,7 @@ const run = (input: string, message: Message) => {
       }
     }
 
-    axios.post(`${DICE_SERVICE}/roll`, rollPayload).then((response) => {
+    axios.post(`${DICE_SERVICE}`, rollPayload).then((response) => {
       const rollResponse: RollResponse = response.data;
       const step: Step = rollResponse.step[0];
       const resultParts = [];
